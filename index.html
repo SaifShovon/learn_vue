@@ -5,22 +5,32 @@
 <head>
 <body>
 	<div id = "root">
-		<input type = "text" id = "input" v-model = "message">
-		<p>Input Field Value id: {{message}}.</p>
+		{{name}}<br>{{roll}}<br>{{names}}<br >
+		<li v-for = "name in names" v-text="name"></li>
+		<input type="text" id = "name">
+		<button id = "add">Add Name</button>
 	</div>
 
-	<script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+	<script src="vue.min.js"></script>
 	<script type="text/javascript">
 		// let data = {
 		// 	message : "Hellow World"
 		// };
 		//document.querySelector('#input').value = data.message;
-		new Vue({
+		var app = new Vue({
 			el:'#root',
-			data:{
-				message : "Hello World"
+			data:{ 
+				name : "Hello World",
+				roll : 1234,
+				names : ['Saif','Noman','Tusher']
 			}
 		})
+		app.names.push('Mahedi');
+		document.querySelector('#add').addEventListener('click',()=>{
+			let name = document.querySelector('#name');
+			app.names.push(name.value);
+			name.value = '';
+		});
 
 	</script>
 </body>
