@@ -3,19 +3,33 @@
 <head>
 	<title></title>
 	<style type="text/css">
-		.color-red  {
-			color: red;
-		}
-		.color-blue {
-			color:blue;
-		}
+		
 	</style>
 <head>
 <body>
 	<div id = "root">
-	<button :class = "className" @click="changeColor" :title = "title">Click Me</button>
-	<button :class = "{'color-blue' : color}" @click="changeColor" >Click</button>
+	<h1 v-text = "new Date()"></h1>
+	<h1>
+		text : {{message}} <br>
+		reverserd Text: {{message.split('').reverse().join('')}}
+	</h1>
+	<h2 >
+		Reversed using computed: {{reversedTest}}
+	</h2>
+	<h1> All Tasks</h1>
+	<ul>
+		<li v-for = "task in tasks" v-text = "task.name"></li>
+	</ul>
 
+		<h1> Completed Tasks</h1>
+	<ul>
+		<li   v-for = "task in tasks" v-if = "task.status" v-text = "task.name"></li>
+	</ul>
+
+	<h1> InComplete Tasks</h1>
+	<ul>
+		<li   v-for = "task in incompletedTasks"  v-text = "task.name"></li>
+	</ul>
 	</div>
 
 	<script src="vue.min.js"></script>
@@ -24,14 +38,24 @@
 		var app = new Vue({
 			el :'#root',
 			data: {
-				title : "Click Me",
-				className : 'color-blue',
-				color : false
+				message : "Saif Shovon",
+				tasks : [
+					{name : "Add Route",status : true},
+					{name : "Edit Route",status : true},
+					{name : "Add Retailer",status : true},
+					{name : "Edit Retailer",status : true},
+					{name : "DHRSS Report",status : false},
+					{name : "Menu Manager",status : false}
+				]
 			},
-			methods:{
-				changeColor(){
-					this.className = 'color-red',
-					this.color = true
+			computed :{
+				reversedTest(){
+					return this.message.split('').reverse().join('');
+				},
+
+				incompletedTasks(){
+					return this.tasks.filter(task => ! task.status);
+					//return this.message;
 				}
 			}
 			
