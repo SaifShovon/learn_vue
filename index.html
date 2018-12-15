@@ -7,8 +7,8 @@
 	<div id = "root">
 		{{name}}<br>{{roll}}<br>{{names}}<br >
 		<li v-for = "name in names" v-text="name"></li>
-		<input type="text" id = "name">
-		<button id = "add">Add Name</button>
+		<input type="text" v-model="newName">
+		<button @click="addName">Add Name</button>
 	</div>
 
 	<script src="vue.min.js"></script>
@@ -22,15 +22,25 @@
 			data:{ 
 				name : "Hello World",
 				roll : 1234,
-				names : ['Saif','Noman','Tusher']
-			}
+				names : ['Saif','Noman','Tusher'],
+				newName:''
+			},
+			methods : {
+				addName(){
+					this.names.push(this.newName);
+					this.newName = '';
+				}
+
+		}
 		})
-		app.names.push('Mahedi');
-		document.querySelector('#add').addEventListener('click',()=>{
-			let name = document.querySelector('#name');
-			app.names.push(name.value);
-			name.value = '';
-		});
+		
+
+		// app.names.push('Mahedi');
+		// document.querySelector('#add').addEventListener('click',()=>{
+		// 	let name = document.querySelector('#name');
+		// 	app.names.push(name.value);
+		// 	name.value = '';
+		// });
 
 	</script>
 </body>
