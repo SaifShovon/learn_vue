@@ -24,15 +24,23 @@
 		<h1> Completed Tasks</h1>
 	<ul>
 		<li   v-for = "task in tasks" v-if = "task.status" v-text = "task.name"></li>
-	</ul>
+	</ul>   
 
 	<h1> InComplete Tasks</h1>
 	<ul>
 		<li   v-for = "task in incompletedTasks"  v-text = "task.name"></li>
 	</ul>
+
+
+	</div>
+	<div id = "root1">
+			<heading> Test 1</heading>
+			<heading> Test 3</heading>
+			<heading> Test 2</heading>
 	</div>
 
 	<script src="vue.min.js"></script>
+	<script src="main.js"></script>
 	<script type="text/javascript">
 		
 		var app = new Vue({
