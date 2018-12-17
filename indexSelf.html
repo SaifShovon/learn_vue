@@ -8,66 +8,12 @@
 <head>
 <body>
 	<div id = "root">
-	<h1 v-text = "new Date()"></h1>
-	<h1>
-		text : {{message}} <br>
-		reverserd Text: {{message.split('').reverse().join('')}}
-	</h1>
-	<h2 >
-		Reversed using computed: {{reversedTest}}
-	</h2>
-	<h1> All Tasks</h1>
-	<ul>
-		<li v-for = "task in tasks" v-text = "task.name"></li>
-	</ul>
-
-		<h1> Completed Tasks</h1>
-	<ul>
-		<li   v-for = "task in tasks" v-if = "task.status" v-text = "task.name"></li>
-	</ul>   
-
-	<h1> InComplete Tasks</h1>
-	<ul>
-		<li   v-for = "task in incompletedTasks"  v-text = "task.name"></li>
-	</ul>
-
-
-	</div>
-	<div id = "root1">
-			<heading> Test 1</heading>
-			<heading> Test 3</heading>
-			<heading> Test 2</heading>
+		<task-list></task-list>
 	</div>
 
 	<script src="vue.min.js"></script>
 	<script src="main.js"></script>
 	<script type="text/javascript">
-		
-		var app = new Vue({
-			el :'#root',
-			data: {
-				message : "Saif Shovon",
-				tasks : [
-					{name : "Add Route",status : true},
-					{name : "Edit Route",status : true},
-					{name : "Add Retailer",status : true},
-					{name : "Edit Retailer",status : true},
-					{name : "DHRSS Report",status : false},
-					{name : "Menu Manager",status : false}
-				]
-			},
-			computed :{
-				reversedTest(){
-					return this.message.split('').reverse().join('');
-				},
-
-				incompletedTasks(){
-					return this.tasks.filter(task => ! task.status);
-					//return this.message;
-				}
-			}
-			
-		})
 		
 	</script>
 </body>
