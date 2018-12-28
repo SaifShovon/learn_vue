@@ -11,12 +11,23 @@
 	</style>
 <head>
 <body>
-	<div id = "root">
-		<modal v-if = "showModal" @close = "showModal = false">
-			<p>Bangladesh Bangladesh Bangladesh</p><p>Bangladesh Bangladesh Bangladesh1</p>
-		</modal>
-		<button @click = "showModal = true" >Show Modal</button>
+	<div id = "root" class = "container">
 		
+		<tabs>
+			<tab name = "About Us" :selected = "true">
+				<h1>THIS IS DESCRiption for About Us</h1>
+			</tab>
+
+			<tab name = "About Vission">
+				<h1>THIS IS DESCRiption for About Vission</h1>
+			</tab>
+
+			<tab name = "About Mission">
+				<h1>THIS IS DESCRiption for About Mission</h1>
+			</tab>
+
+
+		</tabs>
 	</div>
 
 	<script src="vue.min.js"></script>
