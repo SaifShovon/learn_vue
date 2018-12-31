@@ -13,21 +13,12 @@
 <body>
 	<div id = "root" class = "container">
 		
-		<tabs>
-			<tab name = "About Us" :selected = "true">
-				<h1>THIS IS DESCRiption for About Us</h1>
-			</tab>
-
-			<tab name = "About Vission">
-				<h1>THIS IS DESCRiption for About Vission</h1>
-			</tab>
-
-			<tab name = "About Mission">
-				<h1>THIS IS DESCRiption for About Mission</h1>
-			</tab>
+		<coupon @applied = "onCouponApplied">
 
 
-		</tabs>
+		</coupon>
+
+		<h1 v-show = "couponApplied">You Used A coupon</h1>
 	</div>
 
 	<script src="vue.min.js"></script>
